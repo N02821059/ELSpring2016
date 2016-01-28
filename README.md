@@ -1,3 +1,4 @@
 # ELSpring2016
-Template for Spring 2016 Embedded Linux class
-This is a template for students to clone for their work in the class. You should maintain the directory structure
+Spring 2016 Embedded Linux class
+The purpose of the repo is to learn how to use Github as well as save all of my work on Github for the purpose of
+grading and convenience.

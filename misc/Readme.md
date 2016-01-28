@@ -1,2 +1,1 @@
-A directory for misellaneous stuff. Nothing really relevant should be here!
-
+This folder is for miscellaneous stuff. Nothing important should really be here.
