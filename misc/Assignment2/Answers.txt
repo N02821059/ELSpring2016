@@ -1,0 +1,303 @@
+pi@raspberrypi:~$ ifconfig
+
+eth0      Link encap:Ethernet  HWaddr b8:27:eb:93:82:7c  
+          inet addr:137.140.134.179  Bcast:137.140.135.255  Mask:255.255.248.0
+          inet6 addr: fe80::2bcd:819b:7f1e:116a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:63769 errors:0 dropped:21 overruns:0 frame:0
+          TX packets:209 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:5008949 (4.7 MiB)  TX bytes:20779 (20.2 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:200 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:200 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:16656 (16.2 KiB)  TX bytes:16656 (16.2 KiB)
+
+
+pi@raspberrypi:~$ df -h
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       3.5G  3.2G   95M  98% /
+devtmpfs        214M     0  214M   0% /dev
+tmpfs           218M     0  218M   0% /dev/shm
+tmpfs           218M  4.5M  213M   3% /run
+tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+tmpfs           218M     0  218M   0% /sys/fs/cgroup
+/dev/mmcblk0p1   60M   20M   41M  34% /boot
+tmpfs            44M     0   44M   0% /run/user/1000
+
+pi@raspberrypi:~$ du -sk ~/
+
+9268    /home/pi/
+
+pi@raspberrypi:~$ du -sh ~/
+
+9.1M    /home/pi/
+
+pi@raspberrypi:~$ ps xa
+
+  PID TTY STAT TIME COMMAND
+    1 ?  Ss 0:05 /sbin/init
+    2 ?  S 0:00 [kthreadd]
+    3 ?  S 0:00 [ksoftirqd/0]
+    5 ?  S< 0:00 [kworker/0:0H]
+    6 ?  S 0:00 [kworker/u2:0]
+    7 ?  S 0:02 [rcu_preempt]
+    8 ?  S 0:00 [rcu_sched]
+    9 ?        S      0:00 [rcu_bh]
+   10 ?        S<     0:00 [khelper]
+   11 ?        S      0:00 [kdevtmpfs]
+   12 ?        S<     0:00 [netns]
+   13 ?        S<     0:00 [perf]
+   14 ?        S      0:00 [khungtaskd]
+   15 ?        S<     0:00 [writeback]
+   16 ?        S<     0:00 [crypto]
+   17 ?        S<     0:00 [bioset]
+   18 ?        S<     0:00 [kblockd]
+   19 ?        S      0:00 [kworker/0:1]
+   20 ?        S<     0:00 [rpciod]
+   21 ?        S      0:00 [kswapd0]
+   22 ?        S      0:00 [fsnotify_mark]
+   23 ?        S<     0:00 [nfsiod]
+   29 ?        S<     0:00 [kthrotld]
+   30 ?        S<     0:00 [VCHIQ-0]
+   31 ?        S<     0:00 [VCHIQr-0]
+   32 ?        S<     0:00 [VCHIQs-0]
+   33 ?        S<     0:00 [iscsi_eh]
+   34 ?        S<     0:00 [dwc_otg]
+   35 ?        S<     0:00 [DWC Notificatio]
+   37 ?        S      0:00 [VCHIQka-0]
+   38 ?        S<     0:00 [SMIO]
+   39 ?        S<     0:00 [deferwq]
+   40 ?        S      0:00 [kworker/u2:2]
+   41 ?        S      0:01 [mmcqd/0]
+   43 ?        S      0:00 [jbd2/mmcblk0p2-]
+   44 ?        S<     0:00 [ext4-rsv-conver]
+   45 ?        S<     0:00 [ipv6_addrconf]
+   90 ?        Ss     0:10 /lib/systemd/systemd-journald
+   92 ?        Ss     0:00 /lib/systemd/systemd-udevd
+  317 ?        Ss     0:00 /usr/sbin/cron -f
+  318 ?        Ss     0:00 /lib/systemd/systemd-logind
+  325 ?        Ss     0:02 avahi-daemon: running [raspberrypi.local]
+  328 ?        Ss     0:00 /usr/bin/dbus-daemon --system --address=systemd: --no
+  331 ?        S<     0:00 [cfg80211]
+  333 ?        Ss     0:06 /sbin/dhcpcd -q -b
+  337 ?        S      0:00 avahi-daemon: chroot helper
+  342 ?        Ss     0:00 /usr/sbin/thd --daemon --triggers /etc/triggerhappy/t
+  367 ?        Ssl    0:02 /usr/sbin/rsyslogd -n
+  380 ?        S<     0:00 [kworker/0:1H]
+  405 ?        Ss     0:00 /usr/sbin/sshd -D
+  413 ?        Ssl    0:00 /usr/sbin/lightdm
+  423 ?        Ss     0:00 /usr/sbin/ntpd -p /var/run/ntpd.pid -g -u 107:112
+  428 tty1     Ss     0:00 /bin/login -f
+  430 ?        Ss     0:00 /bin/login --
+  432 tty7     Ss+    0:02 /usr/bin/X :0 -seat seat0 -auth /var/run/lightdm/root
+  446 ?        Ss     0:00 /lib/systemd/systemd --user
+  452 ?        S      0:00 (sd-pam)
+  460 tty1     S+     0:01 -bash
+  469 ?        Sl     0:00 lightdm --session-child 13 16
+  485 ?        Ssl    0:00 /usr/bin/lxsession -s LXDE-pi -e LXDE
+  511 ?        Ss     0:00 /usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-s
+  514 ?        S      0:00 /usr/bin/dbus-launch --exit-with-session x-session-ma
+  515 ?        Ss     0:00 /usr/bin/dbus-daemon --fork --print-pid 5 --print-add
+  521 ?        Sl     0:00 /usr/lib/gvfs/gvfsd
+  525 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-fuse /run/user/1000/gvfs -f -o bi
+  577 ?        S      0:00 openbox --config-file /home/pi/.config/openbox/lxde-p
+  582 ?        Sl     0:00 lxpolkit
+  589 ?        Sl     0:06 lxpanel --profile LXDE-pi
+  593 ?        Sl     0:01 pcmanfm --desktop --profile LXDE-pi
+  630 ttyAMA0  S      0:01 -bash
+  650 ?        Ss     0:00 /usr/bin/ssh-agent -s
+  660 ?        Ssl    0:00 /usr/lib/policykit-
+  669 ?        Sl     0:00 /usr/lib/gvfs/gvfs-udisks2-volume-monitor
+  671 ?        Ssl    0:00 /usr/lib/udisks2/udisksd --no-debug
+  681 ?        Sl     0:00 /usr/lib/gvfs/gvfs-goa-volume-monitor
+  685 ?        Sl     0:00 /usr/lib/gvfs/gvfs-mtp-volume-monitor
+  691 ?        Sl     0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+  696 ?        Sl     0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+  705 ?        Ssl    0:00 /usr/lib/menu-cache/menu-cached /tmp/.menu-cached-:0-
+  711 ?        Sl     0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.1 /org/gtk/gvf
+  727 ?        S      0:00 [kworker/0:0]
+  734 ttyAMA0  S+     0:00 script
+  735 ttyAMA0  S+     0:00 script
+  736 pts/0    Ss     0:00 bash -i
+  747 pts/0    R+     0:00 ps xa
+
+pi@raspberrypi:~$ date
+
+Fri 12 Feb 05:54:01 UTC 2016
+
+pi@raspberrypi:~$ who
+
+pi       ttyAMA0      2016-02-12 04:17
+pi       tty1         2016-02-12 04:17
+pi       :0           2016-02-12 04:17 (:0)
+
+pi@raspberrypi:~$ whoami
+
+pi
+
+pi@raspberrypi:~$ which python
+
+/usr/bin/python
+
+pi@raspberrypi:~$ which nano
+
+/usr/bin/nano
+
+pi@raspberrypi:~$ ls /sbi n
+
+pi@raspberrypi:~$ lsmod
+
+Module                  Size  Used by
+cfg80211              499834  0 
+rfkill                 22491  1 cfg80211
+snd_bcm2835            22317  3 
+bcm2835_gpiomem         3703  0 
+snd_pcm                92581  1 snd_bcm2835
+snd_timer              23454  1 snd_pcm
+snd                    68161  9 snd_bcm2835,snd_timer,snd_pcm
+uio_pdrv_genirq         3690  0 
+uio                    10002  1 uio_pdrv_genirq
+i2c_dev                 6730  0 
+fuse                   91981  3 
+ipv6                  360374  24 
+
+
+pi@raspberrypi:~$ which mount
+
+/bin/mount
+
+pi@raspberrypi:~$ mount
+
+/dev/mmcblk0p2 on / type ext4 (rw,noatime,data=ordered)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=218244k,nr_inodes=54561,mode=755)
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,mode=755)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/net_cls type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=22,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,relatime)
+configfs on /sys/kernel/config type configfs (rw,relatime)
+/dev/mmcblk0p1 on /boot type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=44504k,mode=700,uid=1000,gid=1000)
+gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime,user_id=1000,group_id=1000)
+
+
+pi@raspberrypi:~$ sudo apt-get install sqlite3
+
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Suggested packages:
+  sqlite3-doc
+The following NEW packages will be installed:
+  sqlite3
+0 upgraded, 1 newly installed, 0 to remove and 133 not upgraded.
+Need to get 99.5 kB of archives.
+After this operation, 139 kB of additional disk space will be used.
+Get:1 http://mirrordirector.raspbian.org/raspbian/ jessie/main sqlite3 armhf 3.8.7.1-1+deb8u1 [99.5 kB]
+Fetched 99.5 kB in 0s (131 kB/s)
+Selecting previously unselected package sqlite3.
+(Reading database ... 123536 files and directories currently installed.)
+Preparing to unpack .../sqlite3_3.8.7.1-1+deb8u1_armhf.deb ...
+Unpacking sqlite3 (3.8.7.1-1+deb8u1) ...
+Processing triggers for man-db (2.7.0.2-5) ...
+
+Setting up sqlite3 (3.8.7.1-1+deb8u1) ...
+
+pi@raspberrypi:~$ which sqlite3
+
+/usr/bin/sqlite3
+
+pi@raspberrypi:~$ dpkg -l installed_packages.txt
+
+pkg-query: no packages found matching installed_packages.txt
+
+pi@raspberrypi:~$ tail installed_packages.txt
+
+tail: cannot open ‘installed_packages.txt’ for reading: No such file or directory
+
+pi@raspberrypi:~$ wc -l installed_packages.txt 
+
+wc: installed_packages.txt: No such file or directory
+
+pi@raspberrypi:~$ find / -iname 'syslog*'
+
+/lib/systemd/system/syslog.socket
+/usr/lib/pypy-upstream/lib_pypy/syslog.py
+/usr/lib/pypy-upstream/lib_pypy/syslog.pyc
+/usr/lib/ruby/2.1.0/syslog
+/usr/lib/ruby/1.9.1/arm-linux-eabihf/syslog.so
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/auto/Sys/Syslog
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/auto/Sys/Syslog/Syslog.so
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/Sys/Syslog.pm
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/sys/syslog.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog-ldbl.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog-path.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/syslog.ph
+/usr/lib/arm-linux-gnueabihf/ruby/2.1.0/syslog.so
+/usr/include/syslog.h
+/usr/include/arm-linux-gnueabihf/sys/syslog.h
+/usr/include/arm-linux-gnueabihf/bits/syslog-path.h
+/usr/include/arm-linux-gnueabihf/bits/syslog.h
+/usr/include/arm-linux-gnueabihf/bits/syslog-ldbl.h
+/usr/share/doc/libruby1.9.1/syslog
+/usr/share/doc/libruby1.9.1/syslog/syslog.txt
+/usr/share/man/man3/syslog.3.gz
+/usr/share/man/man2/syslog.2.gz
+/usr/share/ri/1.9.1/system/Syslog
+/var/lib/systemd/deb-systemd-helper-enabled/syslog.service
+/var/log/syslog
+/run/systemd/journal/syslog
+/etc/systemd/system/syslog.service
+
+pi@raspberrypi:~$ find / -iname 'syslog*' 2>/dev/null
+
+/lib/systemd/system/syslog.socket
+/usr/lib/pypy-upstream/lib_pypy/syslog.py
+/usr/lib/pypy-upstream/lib_pypy/syslog.pyc
+/usr/lib/ruby/2.1.0/syslog
+/usr/lib/ruby/1.9.1/arm-linux-eabihf/syslog.so
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/auto/Sys/Syslog
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/auto/Sys/Syslog/Syslog.so
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/Sys/Syslog.pm
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/sys/syslog.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog-ldbl.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/bits/syslog-path.ph
+/usr/lib/arm-linux-gnueabihf/perl/5.20.2/syslog.ph
+/usr/lib/arm-linux-gnueabihf/ruby/2.1.0/syslog.so
+/usr/include/syslog.h
+/usr/include/arm-linux-gnueabihf/sys/syslog.h
+/usr/include/arm-linux-gnueabihf/bits/syslog-path.h
+/usr/include/arm-linux-gnueabihf/bits/syslog.h
+/usr/include/arm-linux-gnueabihf/bits/syslog-ldbl.h
+/usr/share/doc/libruby1.9.1/syslog
+/usr/share/doc/libruby1.9.1/syslog/syslog.txt
+/usr/share/man/man3/syslog.3.gz
+/usr/share/man/man2/syslog.2.gz
+/usr/share/ri/1.9.1/system/Syslog
+/var/lib/systemd/deb-systemd-helper-enabled/syslog.service
+/var/log/syslog
+/run/systemd/journal/syslog
+/etc/systemd/system/syslog.service
+
